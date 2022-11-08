@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="./styles_chats.css">
+    </head>
+    <body>
+        <header id="title-header">
+            <div class="circle"></div>
+            <h1 id="title"><a href="/<%= myid %>">Sup sup</a></h1>
+        </header>
+        <main>
+            <div id="search"></div>
+            <% all_contacts.forEach(contact => { %>
+                <div class="contact">
+                    <div class="profile-pic"></div>
+                    <h2><a href="/<%= myid %>/<%= contact.userid %>"><%= contact.firstname %> <%= contact.lastname %></a></h2>
+                </div>
+            <% }) %>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles_signin.css">
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+    <body>  
+        <div style="display: flex">
+            <div id="photo">
+                <h1 id="welcome">Welcome again</h1>
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>                
+            </div>
+            <form method="post" action="/login">
+                
+                <div>
+                    <h2>LOGIN</h2>           
+                    <label for="userid">User id</label>
+                    <input type="text" id="userid" name="userid" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <p style="opacity: 0;">.</p>
+                    <p style="color: #ca3a9a; margin-top: 162px;">Incorrect username or password!!</p>
+                </div>
+                
+            
+                <button type="submit">Login</button>            
+            </form>
+        </div>
+    </body>
+</html>

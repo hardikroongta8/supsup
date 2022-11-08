@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="../styles_chats.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="headers">
+            <header id="title-header">
+                <div class="circle"></div>
+                <h1 id="title"><a href="/<%= myid %>">Sup sup</a></h1>
+            </header>
+            <header id="contact-title-header">
+                <div class="circle"></div>
+                <h1 id="title"><%= active_contact[0].firstname %> <%= active_contact[0].lastname %></h1>
+            </header>
+        </div>
+        <div class="main-body">
+            <main>
+                <div class="chats">
+                    <div id="search"></div>
+                    <% all_contacts.forEach(contact => { %>
+                        <% if(contact.userid == active_contact_id){ %>
+                            <div class="contact" id="active">
+                                <div class="profile-pic"></div>
+                                <h2><a href="/<%= myid %>/<%= contact.userid %>"><%= contact.firstname %>
+                                <%= contact.lastname %></a></h2>
+                            </div>
+                        <% }else{ %>
+                            <div class="contact">
+                                <div class="profile-pic"></div>
+                                <h2><a href="/<%= myid %>/<%= contact.userid %>"><%= contact.firstname %>
+                                <%= contact.lastname %></a></h2>
+                            </div>
+                        <% } %>
+                    <% }) %>
+
+                </div>
+            </main>
+            <div class="chatting-area">
+
+                <div id="chats">
+                    <div id="chat">
+                        <% messages.forEach(message => { %>
+                            <% if(message.sent == true){ %>
+                                <div class="sent-message">
+                                    <%= message.text %>
+                                </div>
+                            <% }else{ %>
+                                <div class="received-message">
+                                    <%= message.text %>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
+                <footer>
+                    <div id="typing-area">
+                        <form action="/<%= myid %>/<%= active_contact_id %>" method="post">
+                            <input type="text" id="text" name="text" placeholder="  Type a message">
+                            <button type="submit"><i class="fa fa-send fa-lg"></i></button>
+                        </form>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </body>
+</html>
